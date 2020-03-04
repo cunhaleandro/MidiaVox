@@ -167,3 +167,6 @@ function formataCampo(campo, Mascara, evento) {
             return true; 
     }
 }
+function editJquery{
+    var itens = $("#lista li").detach();
+}
