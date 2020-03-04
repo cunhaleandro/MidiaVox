@@ -8,11 +8,11 @@ function Enviar() {
  
 }
 function validaForm(frm) {
-/*
-o parâmetro frm desta função significa: this.form,
-pois a chamada da função - validaForm(this) foi
-definida na tag form.
-*/
+    /*
+    o parâmetro frm desta função significa: this.form,
+    pois a chamada da função - validaForm(this) foi
+    definida na tag form.
+    */
     //Verifica se o campo nome foi preenchido e
     //contém no mínimo três caracteres.
     if(frm.nome.value == " || form.nome.value == null || frm.nome.value.lenght < 3"){
@@ -32,31 +32,65 @@ definida na tag form.
         frm.email.focus();
         return false;
     }
-    // O utilizador necessita de selecionar um dos dois
-    //radio buttons: Masculino ou Feminino.
-    escolhaSexo = -1; //valor negativo default (padrão) que significa que nada foi escolhido ainda.
-    //No bloco de código abaixo foi criado um ciclo entre
-    //os radios button com o mesmo nome (sexo)
-    for(x = frm.sexo.lenght -1; x > -1; x--) {
-        /*
-        x = frm.sexo.lenght -1 é a mesma coisa que: x = 2-
-        1, que resulta em 1.
-        x > -1 significa que o valor de x não pode ser igual a -1 e
-        sim maior, porque -1 significa que nada foi escolhido.
-        x-- significa que há um decremento no valor x, é algo como:
-        x = 1, x= 0 e pára pois x não pode ser -1.
-        */
-        if(frm.sexo[x].checked) { //checked quer dizer selecionado,
-           //então verifica se o primeiro (0) ou o
-           //segundo (1) radio button foi selecionado (checked).
-           escolhaSexo = x; //atribui à variável escolhaSexo o valor X.
-        }
+}
+
+// mascara para telefone
+function mascara(o,f){
+    v_obj=o
+    v_fun=f
+    setTimeout("executamascara()",1)
+}
+
+function executamascara(){
+v_obj.value=v_fun(v_obj.value)
+}
+
+function mascaratelefone(v){
+    v=v.replace(/D/g,"");                 //Remove tudo o que não é dígito
+    v=v.replace(/^(d{2})(d)/g,"($1) $2"); //Coloca parênteses em volta dos dois primeiros dígitos
+    v=v.replace(/(d)(d{4})$/,"$1-$2");    //Coloca hífen entre o quarto e o quinto dígitos
+    return v;
     }
-    //se nenhuma das opções (masculino ou feminino) forem
-    //escolhidas, mostra um alerta e cancela o envio.
-    if(escolhaSexo == -1) {
-        alert("qual o seu sexo?");
-        frm.sexo[0].focus();
-        return false;
+
+function validatePhone (telefone) {
+    var regex = new RegExp('^((1[1-9])|([2-9][0-9]))((3[0-9]{3}[0-9]{4})|(9[0-9]{3}[0-9]{5}))$'); 
+    if (regex.test(telefone)) { 
+        console.log("Válido");
+    }else{
+        console.log("Inválido");
+    }
+    return regex.test(telefone);
+    }
+window.onload = function(){
+    id('telefone').onkeypress = function(){
+        mascara( this, mascaratelefone );
+    }
+    
+//adiciona mascara ao RG
+function MascaraRG(rg){
+    if((rg)==false){
+        event.returnValue = false;
+    }       
+    return formataCampo(rg, '00.000.000-0', event);
+    }
+function MascaraCep(cep){
+    if(mascaraInteiro(cep)==false){
+    event.returnValue = false;
+    }       
+    return formataCampo(cep, '00.000-000', event);
+    }
+
+//adiciona mascara de data
+function MascaraData(data){
+if(mascaraInteiro(data)==false){
+    event.returnValue = false;
+    }       
+    return formataCampo(data, '00/00/0000', event);
+    }
+//valida CEP
+function ValidaCep(cep){
+    exp = /\d{2}\.\d{3}\-\d{3}/
+    if(!exp.test(cep.value))
+    alert('Numero de Cep Invalido!');               
     }
 }
