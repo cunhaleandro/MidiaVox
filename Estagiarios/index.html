@@ -9,7 +9,7 @@
     <link href="css/jquery.mobile-1.4.5.min" rel="stylesheet"/>
     
 
-    <script src="js/desafio_javaScript.js"></script>
+    <script src="js/desafio.js"></script>
     <script src="js/jquery.js"></script>
     <script src="js/jquery.mobile-1.4.5.min.js"></script>
 </head>
@@ -95,7 +95,7 @@
         </div1>
         <div1 class="cep">
             <label for="cepid">CEP:*</label>
-            <input type= "text" id="cepid" placeholder="xxxxx-xxx" name="cep" />
+            <input type= "text" id="cepid" placeholder="xxxxx-xxx" name="cep" onkeypress="mascaraCep(form.cep)" onkeyup="validaCep(form.cep)"/>
         </div1>
         <div1 class="foneFixo">
             <label for="fonefixoid">Telefone Fixo:</label>
@@ -109,7 +109,7 @@
         </div1>
         <div1>
             <label for="email">Email</label>
-            <input type="text" id="emailid" placeholder="fulano@mail.com" name="email" />
+            <input type="text" id="emailid" placeholder="exemplo@mail.com" name="email" />
         </div1>
         <div1 class="nomeDaMae">
             <label for="nomeDaMaeid">Nome da Mãe*</label>
@@ -117,7 +117,7 @@
         </div1>
         <div class="dataNascimento">
             <label for="dataNascimentoid">Data de nascimento:*</label>
-            <input type="text" id="dataNascimentoid" placeholder="dd/mm/aaaa" name="dataNascimento"/>
+            <input type="text" id="dataNascimentoid" placeholder="dd/mm/aaaa" name="dataNascimento" onkeypress="mascaraData(form.dataNascimento)" onkeyup="validaData(form.dataNascimento)"/>
         </div>
         <div1>
             <label for="informacoes">Quer receber informações sobre sua instalação?</label>
@@ -134,7 +134,7 @@
             </div>
         </div1>
         <div class="submit">
-            <input type="submit" onclick="Prosseguir()" value="Prosseguir"/>
+            <input type="button" onclick="Prosseguir()" value="Prosseguir"/>
         </div>
     
         </form>
