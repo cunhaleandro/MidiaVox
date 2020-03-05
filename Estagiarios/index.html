@@ -28,17 +28,17 @@
     <h2 type="text-align:center";>Olá, preciso dos dados decadastro da sua conta de luz. É só preencher o formulario
         abaixo. Vai levar alguns minutinhos, ok?</h2>
 
-        <div1 class="numeroinstalacao">
-            <label for="numeroinstalacaoid">Nº da Instalação:*</label>
-            <input type="text" id="numeroinstalacaoid" placeholder="xxxxx xxxxx"  name="numeroinstalacao" />
+        <div1 class="numeroInstalacao">
+            <label for="numeroInstalacaoid">Nº da Instalação:*</label>
+            <input type="text" id="numeroInstalacaoid" placeholder="xxxxx xxxxx"  name="numeroInstalacao" />
         </div1>
         <div1 class="nome">
             <label for="nomeid">Nome Completo:*</label>
             <input type="text" id="nomeid" placeholder=""  name="nome" />
         </div1>
-        <div1 class="cpfcnpj">
-            <label for="cpfcnpjid">CPF ou CNPJ:*</label>
-            <input type="text" id="cpfcnpjid" placeholder="" name="cpfcnpj" />
+        <div1 class="cpfCnpj">
+            <label for="cpfCnpjid">CPF ou CNPJ:*</label>
+            <input type="text" id="cpfCnpjid" placeholder="11 números" name="cpfCnpj" />
         </div1>
         <div1 class="registro">
             <label for="registroid">RG, CNH ou CTPS:*</label>
@@ -61,7 +61,7 @@
             <input type="text" id="bairroid" placeholder="" name="bairro" />
         </div1>
         <div1 class="estado:">
-            <label for="cidadeid">Estado*</label>
+            <label for="estadoid">Estado*</label>
             <select name="Estado"> 
                 <option value="estado">Selecione o Estado</option> 
                 <option value="ac">Acre</option> 
@@ -97,40 +97,40 @@
             <label for="cepid">CEP:*</label>
             <input type= "text" id="cepid" placeholder="xxxxx-xxx" name="cep" />
         </div1>
-        <div1 class="fonefixo">
+        <div1 class="foneFixo">
             <label for="fonefixoid">Telefone Fixo:</label>
             <input type="text" id="fonefixoid" placeholder="(xx)xxxx-xxxx" name="fonefixo" />
  
         </div1>
-        <div1 class="fonecelular">
-            <label for="fonecelularid">Celular:</label>
-            <input type="text" id="fonecelularid" placeholder="(xx)xxxxx-xxxx" name="fonecelular" />
+        <div1 class="foneCelular">
+            <label for="foneCelularid">Celular:</label>
+            <input type="text" id="foneCelularid" placeholder="(xx)xxxxx-xxxx" name="foneCelular" />
  
         </div1>
         <div1>
             <label for="email">Email</label>
             <input type="text" id="emailid" placeholder="fulano@mail.com" name="email" />
         </div1>
-        <div1 class="nomedamae">
-            <label for="registroid">Nome da Mãe*</label>
-            <input type="text" id="nomedamaeid" placeholder="" name="nomedamae" />
+        <div1 class="nomeDaMae">
+            <label for="nomeDaMaeid">Nome da Mãe*</label>
+            <input type="text" id="nomeDaMaeid" placeholder="" name="nomeDaMae" />
         </div1>
-        <div class="data">
-            <label for="dataid">Data de nascimento:*</label>
-            <input type="text" id="dataid" placeholder="XX/XX/XXXX" name="data"/>
+        <div class="dataNascimento">
+            <label for="dataNascimentoid">Data de nascimento:*</label>
+            <input type="text" id="dataNascimentoid" placeholder="dd/mm/aaaa" name="dataNascimento"/>
         </div>
         <div1>
             <label for="informacoes">Quer receber informações sobre sua instalação?</label>
             <div style="display: flex;">
-                <input class="radio" type="radio" name="conta" value="sim"/><label class ="radiotext">Sim</label>
-                <input class="radio" type="radio" name="conta" value="nao" style="margin-left: 250px;"/> <label class ="radiotext">Não</label>
+                <input class="radio" type="radio" name="informacoes" value="sim"/><label class ="radiotext">Sim</label>
+                <input class="radio" type="radio" name="informacoes" value="nao" style="margin-left: 300px;"/> <label class ="radiotext">Não</label>
                 </div>
         </div1>
         <div1>
-            <label for="conta">Prefere receber sua conta de luz por e-mail?</label>
+            <label for="contaPorEmail">Prefere receber sua conta de luz por e-mail?</label>
             <div style="display: flex;">
-                <input class="radio" type="radio" name="conta" value="sim"/> <label class ="radiotext">Sim</label>
-                <input class="radio" type="radio" name="conta" value="nao" style="margin-left: 250px;"/><label class ="radiotext">Não</label>
+                <input class="radio" type="radio" name="contaPorEmail" value="sim"/> <label class ="radiotext">Sim</label>
+                <input class="radio" type="radio" name="contaPorEmail" value="nao" style="margin-left: 300px;"/><label class ="radiotext">Não</label>
             </div>
         </div1>
         <div class="submit">
