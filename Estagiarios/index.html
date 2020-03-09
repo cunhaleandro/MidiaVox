@@ -34,11 +34,11 @@
         </div1>
         <div1 class="nome">
             <label for="nomeid">Nome Completo:*</label>
-            <input type="text" id="nomeid" placeholder=""  name="nome" />
+            <input type="text" id="nomeid" placeholder="" onkeyup="validaNome(form.nome)" name="nome" />
         </div1>
         <div1 class="cpfCnpj">
             <label for="cpfCnpjid">CPF ou CNPJ:*</label>
-            <input type="text" id="cpfCnpjid" placeholder="11 números" name="cpfCnpj" />
+            <input type="text" id="cpfCnpjid" placeholder="11 números"  onkeypress="mascaraCpfCnpj(form.cpfCnpj)" name="cpfCnpj" />
         </div1>
         <div1 class="registro">
             <label for="registroid">RG, CNH ou CTPS:*</label>
@@ -99,7 +99,7 @@
         </div1>
         <div1 class="foneFixo">
             <label for="fonefixoid">Telefone Fixo:</label>
-            <input type="text" id="fonefixoid" placeholder="(xx)xxxx-xxxx" name="fonefixo" />
+            <input type="text" id="fonefixoid" placeholder="(xx)xxxx-xxxx" onkeypress="mascaraFoneFixo(form.foneFixo)" name="fonefixo" />
  
         </div1>
         <div1 class="foneCelular">
@@ -109,7 +109,7 @@
         </div1>
         <div1>
             <label for="email">Email</label>
-            <input type="text" id="emailid" placeholder="exemplo@mail.com" name="email" />
+            <input type="text" id="emailid" placeholder="exemplo@mail.com" onkeyup = "validaEmail(form.email)" name="email" />
         </div1>
         <div1 class="nomeDaMae">
             <label for="nomeDaMaeid">Nome da Mãe*</label>

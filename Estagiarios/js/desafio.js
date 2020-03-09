@@ -8,6 +8,22 @@ function Prosseguir() {
 
  
 }
+//Valida nome
+function validaNome(nome){
+    console.log(nome.value)
+    if(form.nome.value == " || form.nome.value == null || frm.nome.value.lenght < 3")
+    return false;
+}
+//valida email
+function validaEmail(email){
+    console.log(email.value)
+    if(form.email.value.indexOf("@") == -1 ||
+    form.email.valueOf.indexOf(".") == -1 ||
+    form.email.value == "" ||
+    form.email.value == null) 
+    return false;
+}
+
 //mascara de cep
 function mascaraCep(cep){
     console.log(cep.value)
@@ -25,20 +41,31 @@ function validaCep(cep){
     }
                           
 }
+function mascaraFoneFixo(foneFixo){
+    console.log(foneFixo.value)
+    if(foneFixo.value.length == 1)
+        foneFixo.value += '(' ; 
+    if(foneFixo.value.length == 3)
+        foneFixo.value += ')'; 
+    if(foneFixo.value.length == 8 )
+        foneFixo.value += '-';
+}
 //mascara de data
 function mascaraData(dataNascimento){
     console.log(dataNascimento.value)
     if(dataNascimento.value.length == 2||dataNascimento.value.length ==5)
         dataNascimento.value +='/'
 }
+/*
+//valida data de nascimento
 function validaData(dataNascimento){
     console.log(dataNascimento)
     exp = /\d{2}\/\d{2}\/\d{4}/
     if(!exp.test(dataNascimento.value))
     var partes = dataNascimento.value.split("/");
     var dia = parseInt(partes[0,1], 10);
-    var mes = parseInt(partes[2,3], 10);
-    var ano = parseInt(partes[4,5,6,7], 10);
+    var mes = parseInt(partes[3,4], 10);
+    var ano = parseInt(partes[6,7,8,9], 10);
 
     // Verifica os intervalos de mês e ano
     if(ano < 1900 || ano> 3000 || mes == 0 || mes > 12)
@@ -50,27 +77,76 @@ function validaData(dataNascimento){
     // Verifica o intervalo do dia
     return dia > 0 && dia <= tamanhoMes[mes - 1];
     
-}
+}*/
 
+//Mascara CPF e Cnpj
+function mascaracpfcnpj(cpfCnpj){
+    console.log(cpfCnpj.value)
+    //Remove tudo o que não é dígito
+    cpfCnpj=cpfCnpj.replace(/\D/g,"")
+    
+    if (cpfCnpj.length <= 14) { //CPF
+    
+    //Coloca um ponto entre o terceiro e o quarto dígitos
+    cpfCnpj=cpfCnpj.replace(/(\d{3})(\d)/,"$1.$2")
+    
+    //Coloca um ponto entre o terceiro e o quarto dígitos
+    //de novo (para o segundo bloco de números)
+    cpfCnpj=cpfCnpj.replace(/(\d{3})(\d)/,"$1.$2")
+    
+    //Coloca um hífen entre o terceiro e o quarto dígitos
+    cpfCnpj=cpfCnpj.replace(/(\d{3})(\d{1,2})$/,"$1-$2")
+    
+    } else { //CNPJ
+    
+    //Coloca ponto entre o segundo e o terceiro dígitos
+    cpfCnpj=cpfCnpj.replace(/^(\d{2})(\d)/,"$1.$2")
+    
+    //Coloca ponto entre o quinto e o sexto dígitos
+    cpfCnpj=cpfCnpj.replace(/^(\d{2})\.(\d{3})(\d)/,"$1.$2.$3")
+    
+    //Coloca uma barra entre o oitavo e o nono dígitos
+    cpfCnpj=cpfCnpj.replace(/\.(\d{3})(\d)/,".$1/$2")
+    
+    //Coloca um hífen depois do bloco de quatro dígitos
+    cpfCnpj=cpfCnpj.replace(/(\d{4})(\d)/,"$1-$2")
+    
+    }
+    
+}
+/*/function validaCpfCnpj(cpfCnpj){
+    console.log(cpfCnpj.value)  //XX.XXX.XXX/YYYY-ZZ
+    exp = /\d{3}\.\d{3}\.\d{3}\-\d{2}/ || /\d{2}\.\d{3}\.\d{3}\/\d{4}\-\d{2}/
+    if(!exp.test(cpfCnpj.value))
+        cpfCnpj=cpfCnpj.replace(/(\d{3})(\d)/,"$1.$2")
+        cpfCnpj=cpfCnpj.replace(/(\d{3})(\d)/,"$1.$2")
+        cpfCnpj=cpfCnpj.replace(/(\d{3})(\d{1,2})$/,"$1-$2")
+
+        cpfCnpj=cpfCnpj.replace(/^(\d{2})(\d)/,"$1.$2")
+        cpfCnpj=cpfCnpj.replace(/^(\d{2})\.(\d{3})(\d)/,"$1.$2.$3")
+        cpfCnpj=cpfCnpj.replace(/\.(\d{3})(\d)/,".$1/$2")
+        cpfCnpj=cpfCnpj.replace(/(\d{4})(\d)/,"$1-$2")
+       
+    else{
+        return false
+    }
+    return true                      
+}*/
 
 function validaForm(){
-    
-    if(form.nome.value == " || form.nome.value == null || frm.nome.value.lenght < 3"){
-        alert("Por favor, indique o seu nome.");
-        form.nome.focus();
-        return false;
+    var nome = document.getElementById("nomeid");
+    if (validaNome(nome)==false){
+    alert("Por favor, indique o seu nome.");
+    form.nome.focus();
+    return false
     }
-    //o campo e-mail precisa de conter: "@", "." e não pode estar vazio
-    if(form.email.value.indexOf("@") == -1 ||
-      form.email.valueOf.indexOf(".") == -1 ||
-      form.email.value == "" ||
-      form.email.value == null) {
+    var email = document.getElementById("emailid")
+    if (validaEmail(email)==false){
         alert("Por favor, indique um e-mail válido.");
         form.email.focus();
-        return false;
+        return false
     }
-    //alert data
-    var data =document.getElementById("dataNascimentoid");
+    var data = document.getElementById("dataNascimentoid");
     if(validaData(data)==false){
         alert("Por favor, indique a sua data de nascimento.")
         form.dataNascimento.focus();
@@ -82,6 +158,11 @@ function validaForm(){
         alert("Por favor, indique o seu CEP.")
         form.cep.focus();
         return false;
+    }
+    var cpfCnpj = document.getElementById(cpfCnpjid);
+    alert("Por favor, indique um CPF ou CNPJ válido")
+    if(validaCpfCnpj == false){
+
     }
     return true;
 }
@@ -120,48 +201,6 @@ return formataCampo(foneFixo, '(00)0000-0000', event);
 };
 
 
-function mascaramutua(o,f){
-v_obj=o
-v_fun=f
-setTimeout('execmascara()',1)
-};
-
-function executamascaramutua(){
-v_obj.value=v_fun(v_obj.value)
-};
-
-function cpfcnpj(v){
-
-//Remove tudo o que não é dígito
-v=v.replace(/\D/g,"")
-
-if (v.length <= 14) { //CPF
-
-//Coloca um ponto entre o terceiro e o quarto dígitos
-v=v.replace(/(\d{3})(\d)/,"$1.$2")
-
-//Coloca um ponto entre o terceiro e o quarto dígitos
-//de novo (para o segundo bloco de números)
-v=v.replace(/(\d{3})(\d)/,"$1.$2")
-
-//Coloca um hífen entre o terceiro e o quarto dígitos
-v=v.replace(/(\d{3})(\d{1,2})$/,"$1-$2")
-
-} else { //CNPJ
-
-//Coloca ponto entre o segundo e o terceiro dígitos
-v=v.replace(/^(\d{2})(\d)/,"$1.$2")
-
-//Coloca ponto entre o quinto e o sexto dígitos
-v=v.replace(/^(\d{2})\.(\d{3})(\d)/,"$1.$2.$3")
-
-//Coloca uma barra entre o oitavo e o nono dígitos
-v=v.replace(/\.(\d{3})(\d)/,".$1/$2")
-
-//Coloca um hífen depois do bloco de quatro dígitos
-v=v.replace(/(\d{4})(\d)/,"$1-$2")
-
-}
 
 return v
 }
