@@ -1,11 +1,3 @@
-function Prosseguir() {
-    var nomeid = document.getElementById("nomeid");
-
-    if (validaForm() == true)
-    {
-        alert('Obrigado sr(a) '+nomeid.value +' os seus dados foram encaminhados com sucesso');
-    }
-}
 //Valida nº instalação
 function validaNumero(numeroInstalacao){
     console.log(numeroInstalacao.value)
@@ -53,23 +45,17 @@ function validaCep(cep){
 }
 function mascaraFoneFixo(foneFixo){
     console.log(foneFixo.value)
-    if(foneFixo.value.length == 0)
-        foneFixo.value += '(' ; 
-    if(foneFixo.value.length == 3)
-        foneFixo.value += ')'; 
-    if(foneFixo.value.length == 8 )
-        foneFixo.value += '-';
+    
 }
-//mascara de data
+//Mascara de data
 function mascaraData(dataNascimento){
     console.log(dataNascimento.value)
     if(dataNascimento.value.length == 2||dataNascimento.value.length ==5)
         dataNascimento.value +='/'
 }
-/*
-//valida data de nascimento
+//Valida data nascimento
 function validaData(dataNascimento){
-    console.log(dataNascimento)
+    console.log(dataNascimento.value)
     exp = /\d{2}\/\d{2}\/\d{4}/
     if(!exp.test(dataNascimento.value))
     var partes = dataNascimento.value.split("/");
@@ -87,43 +73,30 @@ function validaData(dataNascimento){
     // Verifica o intervalo do dia
     return dia > 0 && dia <= tamanhoMes[mes - 1];
     
-}*/
+}
 
 //Mascara CPF e Cnpj
-function mascaracpfcnpj(cpfCnpj){
-    console.log(cpfCnpj.value)
-    //Remove tudo o que não é dígito
-    cpfCnpj=cpfCnpj.replace(/\D/g,"")
+
+function mascaracpfcnpj(teste){
+  
+    var v = teste.value
+    teste=teste.replace(/\D/g,"")
     
-    if (cpfCnpj.length <= 14) { //CPF
-    
-    //Coloca um ponto entre o terceiro e o quarto dígitos
-    cpfCnpj=cpfCnpj.replace(/(\d{3})(\d)/,"$1.$2")
-    
-    //Coloca um ponto entre o terceiro e o quarto dígitos
-    //de novo (para o segundo bloco de números)
-    cpfCnpj=cpfCnpj.replace(/(\d{3})(\d)/,"$1.$2")
-    
-    //Coloca um hífen entre o terceiro e o quarto dígitos
-    cpfCnpj=cpfCnpj.replace(/(\d{3})(\d{1,2})$/,"$1-$2")
-    
-    } else { //CNPJ
-    
-    //Coloca ponto entre o segundo e o terceiro dígitos
-    cpfCnpj=cpfCnpj.replace(/^(\d{2})(\d)/,"$1.$2")
-    
-    //Coloca ponto entre o quinto e o sexto dígitos
-    cpfCnpj=cpfCnpj.replace(/^(\d{2})\.(\d{3})(\d)/,"$1.$2.$3")
-    
-    //Coloca uma barra entre o oitavo e o nono dígitos
-    cpfCnpj=cpfCnpj.replace(/\.(\d{3})(\d)/,".$1/$2")
-    
-    //Coloca um hífen depois do bloco de quatro dígitos
-    cpfCnpj=cpfCnpj.replace(/(\d{4})(\d)/,"$1-$2")
-    
+    if (teste.length < 12) { //CPF
+        v=v.replace(/(\d{3})(\d)/,"$1.$2")
+        v=v.eplace(/(\d{3})(\d)/,"$1.$2")
+        v=v.replace(/(\d{3})(\d{1,2})$/,"$1-$2")
+    } 
+
+    else{ //CNPJ
+        v=v.replace(/^(\d{2})(\d)/,"$1.$2")
+        v=v.replace(/^(\d{2})\.(\d{3})(\d)/,"$1.$2.$3")
+        v=v.replace(/\.(\d{3})(\d)/,".$1/$2")
+        v=v.replace(/(\d{4})(\d)/,"$1-$2")
     }
-    
+    teste.value=v;
 }
+
 //Todos os Alerts e confirmação de execução de formulário.
 function validaForm(){
 
@@ -164,7 +137,35 @@ function validaForm(){
         form.cpfCnpj.focus();
         return false;
     }
+    else{
     return true;
+    }
+    
+}
+function Prosseguir() {
+    var nomeid = document.getElementById("nomeid");
+
+    if (validaForm() == true)
+    {
+        alert('Obrigado sr(a) '+nomeid.value +' os seus dados foram encaminhados com sucesso');
+        console.log(numeroInstalacao.value);
+        console.log(nome.value);
+        console.log(cpfCnpj.value);
+        console.log(registros.value);
+        console.log(endereco.value);
+        console.log(numero.value);
+        console.log(complemento.value);
+        console.log(bairro.value);
+        console.log(cidade.value);
+        console.log(estado.value);
+        console.log(cep.value);
+        console.log(foneFixo.value);
+        console.log(foneCelular.value);
+        console.log(email.value);
+        console.log(nomeMae.value);
+        console.log(dataNascimento.value)
+        
+    }
 }
 
 
