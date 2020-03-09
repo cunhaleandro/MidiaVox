@@ -13,7 +13,8 @@ function validaNumero(numeroInstalacao){
     if(tecla>47 || tecla<58 ||tecla==8 || tecla==0) 
         return true;
    
-	else  return false;
+    else  
+        return false;
 }
 
 //Valida nome
