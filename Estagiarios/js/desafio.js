@@ -123,38 +123,45 @@ function mascaracpfcnpj(cpfCnpj){
     }
     
 }
-//
+//Todos os Alerts e confirmação de execução de formulário.
 function validaForm(){
-    var numeroInsta = do
+
+    var numeroInstalacao = document.getElementById("numeroInstalacaoid")
+    if (validaNumero(numeroInstalacao)== false){
+        alert("Por favor, colque apenas número para o campo Nº de instalação.")
+        form.numeroInstalacao.focus();
+        return false;
+    }
     var nome = document.getElementById("nomeid");
-    if (validaNome(nome)==false){
-    alert("Por favor, indique o seu nome.");
-    form.nome.focus();
-    return false
+    if(validaNome(nome)==false){
+        alert("Por favor, indique o seu nome.");
+        form.nome.focus();
+        return false;
     }
     var email = document.getElementById("emailid")
-    if (validaEmail(email)==false){
+    if(validaEmail(email)==false){
         alert("Por favor, indique um e-mail válido.");
         form.email.focus();
-        return false
+        return false;
     }
     var data = document.getElementById("dataNascimentoid");
     if(validaData(data)==false){
         alert("Por favor, indique a sua data de nascimento.")
         form.dataNascimento.focus();
-        return false
+        return false;
     }
     //alert CEP
     var cep = document.getElementById("cepid");
-    if (validaCep(cep) == false){
+    if(validaCep(cep) == false){
         alert("Por favor, indique o seu CEP.")
         form.cep.focus();
         return false;
     }
     var cpfCnpj = document.getElementById(cpfCnpjid);
-    alert("Por favor, indique um CPF ou CNPJ válido")
-    if(validaCpfCnpj == false){
-
+    if(validaCpfCnpj(cpfCnpj) == false){
+        alert("Por favor, indique um CPF ou CNPJ válido")
+        form.cpfCnpj.focus();
+        return false;
     }
     return true;
 }
