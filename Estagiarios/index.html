@@ -1,149 +1,252 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
-<head>
+  <head>
     <title>Atualização cadastral</title>
     <meta charset="utf-8" />
-    
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
     <link href="css/desafioCSS.css" rel="stylesheet" media="all" />
-    <link href="css/jquery.mobile.structure-1.4.5.min" rel="stylesheet"/>
-    <link href="css/jquery.mobile-1.4.5.min" rel="stylesheet"/>
-    
+    <link href="css/jquery.mobile.structure-1.4.5.min" rel="stylesheet" />
+    <link href="css/jquery.mobile-1.4.5.min" rel="stylesheet" />
 
     <script src="js/desafio.js"></script>
     <script src="js/jquery.js"></script>
     <script src="js/jquery.mobile-1.4.5.min.js"></script>
-</head>
+  </head>
 
-<body >
+  <body>
     <div class="central">
-        
-    <div class="logo">
-        <img id="logo1" src="css/Icons/MidiaVox.png" style="margin-right:10%;">
-        <img id="logo2" src="css/Icons/MidiaVox.png" style="margin-left: 10%;">
-    </div>
+      <div class="logo">
+        <img
+          id="logo1"
+          src="css/Icons/MidiaVox.png"
+          style="margin-right:10%;"
+        />
+        <img
+          id="logo2"
+          src="css/Icons/MidiaVox.png"
+          style="margin-left: 10%;"
+        />
+      </div>
 
-    <div>
-    <form name="atualizacao" method="POST" action="#" onsubmit="return validaForm(this);">
-    <h1 type="text-align:center";>Atualização Cadastral</h1>
-    <h2 type="text-align:center";>Olá, preciso dos dados decadastro da sua conta de luz. É só preencher o formulario
-        abaixo. Vai levar alguns minutinhos, ok?</h2>
+      <div>
+        <form
+          name="atualizacao"
+          method="POST"
+          action="#"
+          onsubmit="return validaForm(this);"
+        >
+          <h1 type="text-align:center" ;>Atualização Cadastral</h1>
+          <h2 type="text-align:center" ;>
+            Olá, preciso dos dados decadastro da sua conta de luz. É só
+            preencher o formulario abaixo. Vai levar alguns minutinhos, ok?
+          </h2>
 
-        <div1 class="numeroInstalacao">
+          <div1 class="numeroInstalacao">
             <label for="numeroInstalacaoid">Nº da Instalação:*</label>
-            <input type="text" id="numeroInstalacaoid" placeholder="xxxxx xxxxx" onkeyup="validaNumero(form.numeroInstalacao)" name="numeroInstalacao" />
-        </div1>
-        <div1 class="nome">
+            <input
+              type="text"
+              id="numeroInstalacaoid"
+              placeholder="xxxxx xxxxx"
+              onkeyup="validaNumero(form.numeroInstalacao)"
+              name="numeroInstalacao"
+            />
+          </div1>
+          <div1 class="nome">
             <label for="nomeid">Nome Completo:*</label>
-            <input type="text" id="nomeid" placeholder="" onkeyup="validaNome(form.nome)" name="nome" />
-        </div1>
-        <div1 class="cpfCnpj">
+            <input
+              type="text"
+              id="nomeid"
+              placeholder=""
+              onkeyup="validaNome(form.nome)"
+              name="nome"
+            />
+          </div1>
+          <div1 class="cpfCnpj">
             <label for="cpfCnpjid">CPF ou CNPJ:*</label>
-            <input type="text" id="cpfCnpjid" placeholder=""  onkeypress="mascaracpfcnpj(this.cpfCnpj)" name="cpfCnpj" />
-        </div1>
-        <div1 class="registros">
+            <input
+              type="text"
+              id="cpfCnpjid"
+              placeholder=""
+              onkeypress="mascaracpfcnpj(this.cpfCnpj)"
+              name="cpfCnpj"
+            />
+          </div1>
+          <div1 class="registros">
             <label for="registroid">RG, CNH ou CTPS:*</label>
-            <input type="text" id="registrosid" placeholder="" name="registros" />
-        </div1>
-        <div1 class="endereco">
+            <input
+              type="text"
+              id="registrosid"
+              placeholder=""
+              name="registros"
+            />
+          </div1>
+          <div1 class="endereco">
             <label for="enderecoid">Endereço*</label>
-            <input type="text" id="enderecoid" placeholder="Rua/Avenida/Travessa" name="endereco" />
-        </div1>
-        <div1 class="numero">
+            <input
+              type="text"
+              id="enderecoid"
+              placeholder="Rua/Avenida/Travessa"
+              name="endereco"
+            />
+          </div1>
+          <div1 class="numero">
             <label for="numeroid">Número</label>
             <input type="text" id="numeroid" placeholder="" name="numero" />
-        </div1>
-        <div1 class="complemento">
+          </div1>
+          <div1 class="complemento">
             <label for="complementoid">Complemento</label>
-            <input type="text" id="complementoid" placeholder="Apt./Bloco/Quadra... " name="complemento" />
-        </div1>
-        <div1 class="bairro">
+            <input
+              type="text"
+              id="complementoid"
+              placeholder="Apt./Bloco/Quadra... "
+              name="complemento"
+            />
+          </div1>
+          <div1 class="bairro">
             <label for="bairroid">Bairro*</label>
             <input type="text" id="bairroid" placeholder="" name="bairro" />
-        </div1>
-        <div1 class="cidade">
+          </div1>
+          <div1 class="cidade">
             <label for="cidadeid">Cidade:*</label>
             <input type="text" id="cidadeid" placeholder="" name="cidade" />
-        </div1>
-        <div1 class="estado:">
+          </div1>
+          <div1 class="estado:">
             <label for="estadoid">Estado*</label>
-            <select name="Estado"> 
-                <option value="estado">Selecione o Estado</option> 
-                <option value="ac">AC</option> 
-                <option value="al">AL</option> 
-                <option value="am">AM</option> 
-                <option value="ap">AP</option> 
-                <option value="ba">BA</option> 
-                <option value="ce">CE</option> 
-                <option value="df">DF</option> 
-                <option value="es">ES</option> 
-                <option value="go">GO</option> 
-                <option value="ma">MA</option> 
-                <option value="mt">MT</option> 
-                <option value="ms">MS</option> 
-                <option value="mg">MG</option> 
-                <option value="pa">PA</option> 
-                <option value="pb">PB</option> 
-                <option value="pr">PR</option> 
-                <option value="pe">PE</option> 
-                <option value="pi">PI</option> 
-                <option value="rj">RJ</option> 
-                <option value="rn">RN</option> 
-                <option value="ro">RO</option> 
-                <option value="rs">RS</option> 
-                <option value="rr">RR</option> 
-                <option value="sc">SC</option> 
-                <option value="se">SE</option> 
-                <option value="sp">SP</option> 
-                <option value="to">TO</option> 
+            <select name="Estado">
+              <option value="estado">Selecione o Estado</option>
+              <option value="ac">AC</option>
+              <option value="al">AL</option>
+              <option value="am">AM</option>
+              <option value="ap">AP</option>
+              <option value="ba">BA</option>
+              <option value="ce">CE</option>
+              <option value="df">DF</option>
+              <option value="es">ES</option>
+              <option value="go">GO</option>
+              <option value="ma">MA</option>
+              <option value="mt">MT</option>
+              <option value="ms">MS</option>
+              <option value="mg">MG</option>
+              <option value="pa">PA</option>
+              <option value="pb">PB</option>
+              <option value="pr">PR</option>
+              <option value="pe">PE</option>
+              <option value="pi">PI</option>
+              <option value="rj">RJ</option>
+              <option value="rn">RN</option>
+              <option value="ro">RO</option>
+              <option value="rs">RS</option>
+              <option value="rr">RR</option>
+              <option value="sc">SC</option>
+              <option value="se">SE</option>
+              <option value="sp">SP</option>
+              <option value="to">TO</option>
             </select>
             <span></span>
-        </div1>
-        <div1 class="cep">
+          </div1>
+          <div1 class="cep">
             <label for="cepid">CEP:*</label>
-            <input type= "text" id="cepid" placeholder="xxxxx-xxx" name="cep" onkeypress="mascaraCep(form.cep)" onkeyup="validaCep(form.cep)"/>
-        </div1>
-        <div1 class="foneFixo">
+            <input
+              type="text"
+              id="cepid"
+              placeholder="xxxxx-xxx"
+              name="cep"
+              onkeypress="mascaraCep(form.cep)"
+              onkeyup="validaCep(form.cep)"
+            />
+          </div1>
+          <div1 class="foneFixo">
             <label for="fonefixoid">Telefone Fixo:</label>
-            <input type="text" id="fonefixoid" placeholder="(xx)xxxx-xxxx" onkeypress="mascaraFoneFixo(form.foneFixo)" name="fonefixo" />
- 
-        </div1>
-        <div1 class="foneCelular">
+            <input
+              type="text"
+              id="fonefixoid"
+              placeholder="(xx)xxxx-xxxx"
+              onkeypress="mascaraFoneFixo(form.foneFixo)"
+              name="fonefixo"
+            />
+          </div1>
+          <div1 class="foneCelular">
             <label for="foneCelularid">Celular:</label>
-            <input type="text" id="foneCelularid" placeholder="(xx)xxxxx-xxxx" name="foneCelular" />
- 
-        </div1>
-        <div1>
+            <input
+              type="text"
+              id="foneCelularid"
+              placeholder="(xx)xxxxx-xxxx"
+              name="foneCelular"
+            />
+          </div1>
+          <div1>
             <label for="email">Email</label>
-            <input type="text" id="emailid" placeholder="exemplo@mail.com" onkeyup = "validaEmail(form.email)" name="email" />
-        </div1>
-        <div1 class="nomeMae">
+            <input
+              type="text"
+              id="emailid"
+              placeholder="exemplo@mail.com"
+              onkeyup="validaEmail(form.email)"
+              name="email"
+            />
+          </div1>
+          <div1 class="nomeMae">
             <label for="nomeMaeid">Nome da Mãe*</label>
             <input type="text" id="nomeMaeid" placeholder="" name="nomeMae" />
-        </div1>
-        <div class="dataNascimento">
+          </div1>
+          <div class="dataNascimento">
             <label for="dataNascimentoid">Data de nascimento:*</label>
-            <input type="text" id="dataNascimentoid" placeholder="dd/mm/aaaa" name="dataNascimento" onkeypress="mascaraData(form.dataNascimento)" onkeyup="validaData(form.dataNascimento)"/>
-        </div>
-        <div1>
-            <label for="informacoes">Quer receber informações sobre sua instalação?</label>
+            <input
+              type="text"
+              id="dataNascimentoid"
+              placeholder="dd/mm/aaaa"
+              name="dataNascimento"
+              onkeypress="mascaraData(form.dataNascimento)"
+              onkeyup="validaData(form.dataNascimento)"
+            />
+          </div>
+          <div1>
+            <label for="informacoes"
+              >Quer receber informações sobre sua instalação?</label
+            >
             <div style="display: flex;">
-                <input class="radio" type="radio" name="informacoes" value="sim"/><label class ="radiotext">Sim</label>
-                <input class="radio" type="radio" name="informacoes" value="nao" style="margin-left: 300px;"/> <label class ="radiotext">Não</label>
-                </div>
-        </div1>
-        <div1>
-            <label for="contaPorEmail">Prefere receber sua conta de luz por e-mail?</label>
-            <div style="display: flex;">
-                <input class="radio" type="radio" name="contaPorEmail" value="sim"/> <label class ="radiotext">Sim</label>
-                <input class="radio" type="radio" name="contaPorEmail" value="nao" style="margin-left: 300px;"/><label class ="radiotext">Não</label>
+              <input
+                class="radio"
+                type="radio"
+                name="informacoes"
+                value="sim"
+              /><label class="radiotext">Sim</label>
+              <input
+                class="radio"
+                type="radio"
+                name="informacoes"
+                value="nao"
+                style="margin-left: 300px;"
+              />
+              <label class="radiotext">Não</label>
             </div>
-        </div1>
-        <div class="submit">
-            <input type="button" onclick="Prosseguir()" value="Prosseguir"/>
-        </div>
-    
+          </div1>
+          <div1>
+            <label for="contaPorEmail"
+              >Prefere receber sua conta de luz por e-mail?</label
+            >
+            <div style="display: flex;">
+              <input
+                class="radio"
+                type="radio"
+                name="contaPorEmail"
+                value="sim"
+              />
+              <label class="radiotext">Sim</label>
+              <input
+                class="radio"
+                type="radio"
+                name="contaPorEmail"
+                value="nao"
+                style="margin-left: 300px;"
+              /><label class="radiotext">Não</label>
+            </div>
+          </div1>
+          <div class="submit">
+            <input type="button" onclick="Prosseguir()" value="Prosseguir" />
+          </div>
         </form>
+      </div>
     </div>
-    </div>
-</body>
+  </body>
 </html>
